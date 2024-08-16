@@ -17,8 +17,29 @@
   "scripts": {
     "start": "cds-serve",
     "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
+  }, 
   "sapux": [
     "app/incidents"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "incident.support@tester.sap.com": {
+              "password": "initial",
+              "roles": ["support"]
+            },
+            "alice": {
+              "roles": ["support"]
+            },
+            "bob": {
+              "roles": ["support"]
+            }
+          }
+        }
+      }
+    }
+  }
 }
